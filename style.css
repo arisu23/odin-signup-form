@@ -1,13 +1,13 @@
 /* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .container {
-    background-image: url(img/pexels-apasaric-1134166.jpg);
-    height: 100vh;
-    width: 100vw;
+  background: url(https://wallpapers.com/images/hd/cyberpunk-night-city-l1owma2462m47wz6.jpg) no-repeat;
+  height: 100vh;
+  width: 100vw;
 }
