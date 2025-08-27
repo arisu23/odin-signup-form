@@ -168,3 +168,20 @@ form .form-footer a {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
+
+/* Input Validations */
+
+.form-group input:focus {
+  border: 2px solid blue;
+  outline: none;
+}
+
+.form-group input:user-invalid {
+  border: 1px solid red;
+  outline: none;
+}
+
+.form-group input:user-valid {
+  border: 1px solid green;
+  outline: none;
+}
