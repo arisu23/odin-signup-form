@@ -14,39 +14,45 @@
   scroll-behavior: smooth;
 }
 
+html {
+  font-size: clamp(14px, 2.5vw, 18px);
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.2;
+}
+
 /* Sidebar */
 img {
-  height: 100px;
-  width: 60px;
+  height: clamp(60px, 10vh, 100px);
+  width: auto;
+  max-width: 80px;
 }
 
 .container {
-  background: url(https://wallpapers.com/images/hd/cyberpunk-night-city-l1owma2462m47wz6.jpg)
-    no-repeat;
+  background: url(https://wallpapers.com/images/hd/cyberpunk-night-city-l1owma2462m47wz6.jpg) no-repeat;
   min-height: 100vh;
   min-width: 100vw;
   display: flex;
 }
 
 .sidebar {
-  width: 500px;
+  width: 100%;
+  max-width: min(100%, 500px);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-}
-
-.form-container {
-  background-color: lightgray;
-}
-
-aside p,
-aside h1 {
   color: #fff;
+  gap: 20px;
 }
 
 aside h1 {
   font-family: "Norse Bold", sans-serif;
-  font-size: 5rem;
+  font-size: clamp(2rem, 8vw, 5rem);
+  text-align: center;
+  margin: 0;
+  letter-spacing: -0.5px;
 }
 
 .title-container {
@@ -54,15 +60,17 @@ aside h1 {
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
-  position: relative;
+  /* position: relative;
   top: 150px;
-  padding: 10px;
+  padding: 10px; */
+  padding: clamp(10px, 5vh, 20px);
+  margin-top: clamp(100px, 20vh, 200px);
 }
 
 .sidebar p {
   margin-top: auto;
-  padding: 15px;
-  font-size: 0.8rem;
+  padding: 10px 15px;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
 }
 
 .sidebar p a {
@@ -74,32 +82,32 @@ aside h1 {
 /* Form */
 
 .form-container {
+  background-color: lightgray;
   width: 100vw;
-}
-
-form {
-  font-family: "Arial", sans-serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .info-container {
-  padding: 30px;
+  padding: clamp(20px, 10vw, 30px);
 }
 
 .info-container p {
-  width: 60ch;
-}
-
-.info-container p {
+  max-width: 60ch;
   font-weight: bold;
+  color: #333;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
 
 .secondary-info {
-  margin-top: 20px;
+  margin-top: clamp(15px, 3vh, 20px);
 }
 
 .input-container {
   background-color: #fff;
-  padding: 10px 30px;
+  padding: clamp(10px, 2vw, 20px) clamp(20px, 5vw, 30px);
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -108,26 +116,23 @@ form {
 
 .input-container h2 {
   color: #333;
-  margin-bottom: 20px;
-  font-size: 1.5em;
+  margin-bottom: clamp(15px, 3vh, 20px);
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
 }
 
 .form-row {
   display: flex;
-  gap: 20px;
+  gap: clamp(10px, 2vh, 20px);
   margin-bottom: 15px;
-}
-
-.form-group {
-  flex: 1;
 }
 
 .form-group label {
   display: block;
-  font-size: 0.8em;
+  font-size: clamp(0.7rem, 1.3vw, 0.9em);
   color: #666;
   margin-bottom: 5px;
   letter-spacing: 0.5px;
+  font-weight: 600;
 }
 
 .form-group input {
@@ -136,6 +141,7 @@ form {
   border: 1px solid #ddd;
   font-size: 1em;
   border-radius: 4px;
+  transition: border 0.3s ease;
 }
 
 .submit,
@@ -145,6 +151,7 @@ form .form-footer {
 
 form .form-footer {
   font-weight: bold;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
 }
 
 form .form-footer a {
@@ -161,6 +168,9 @@ form .form-footer a {
   background-color: blue;
   transition: all 0.3s ease;
   cursor: pointer;
+  font-size: max(0.8rem, calc(0.75rem + 0.2vw));
+  width: min(100%, 200px);
+  align-self: flex-start;
 }
 
 .submit:hover {
@@ -184,4 +194,20 @@ form .form-footer a {
 .form-group input:user-valid {
   border: 1px solid green;
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .form-container {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 50px;
+  }
 }
